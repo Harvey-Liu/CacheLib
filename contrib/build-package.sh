@@ -111,6 +111,7 @@ external_git_branch=
 external_git_tag=
 update_submodules=
 cmake_custom_params=
+cmake_my_params="-DCMAKE_CXX_COMPILER=/opt/gcc-7.2.0/bin/g++ -DCMAKE_C_COMPILER=/opt/gcc-7.2.0/bin/gcc -D_GLIBCXX_USE_CXX11_ABI=1"
 
 case "$1" in
   googlelog)
@@ -120,7 +121,7 @@ case "$1" in
     SRCDIR=$REPODIR
     external_git_clone=yes
     external_git_tag="v0.5.0"
-    cmake_custom_params="-DBUILD_SHARED_LIBS=ON"
+    cmake_custom_params="-DBUILD_SHARED_LIBS=ON $cmake_my_params"
     ;;
 
   googleflags)
@@ -134,7 +135,7 @@ case "$1" in
     if test "$build_tests" = "yes" ; then
         cmake_custom_params="$cmake_custom_params -DGFLAGS_BUILD_TESTING=YES"
     else
-        cmake_custom_params="$cmake_custom_params -DGFLAGS_BUILD_TESTING=NO"
+        cmake_custom_params="$cmake_custom_params -DGFLAGS_BUILD_TESTING=NO $cmake_my_params"
     fi
     ;;
 
@@ -151,7 +152,7 @@ case "$1" in
         echo "Note: disabling DEBUG mode for googletest build"
         debug_build=
     fi
-    cmake_custom_params="-DBUILD_SHARED_LIBS=ON"
+    cmake_custom_params="-DBUILD_SHARED_LIBS=ON $cmake_my_params"
     external_git_clone=yes
     ;;
 
@@ -166,7 +167,7 @@ case "$1" in
     if test "$build_tests" = "yes" ; then
         cmake_custom_params="$cmake_custom_params -DFMT_TEST=YES"
     else
-        cmake_custom_params="$cmake_custom_params -DFMT_TEST=NO"
+        cmake_custom_params="$cmake_custom_params -DFMT_TEST=NO $cmake_my_params"
     fi
     ;;
 
@@ -183,7 +184,7 @@ case "$1" in
     if test "$build_tests" = "yes" ; then
         cmake_custom_params="-DZSTD_BUILD_TESTS=ON"
     else
-        cmake_custom_params="-DZSTD_BUILD_TESTS=OFF"
+        cmake_custom_params="-DZSTD_BUILD_TESTS=OFF $cmake_my_params"
     fi
     ;;
 
@@ -203,7 +204,7 @@ case "$1" in
     if test "$build_tests" = "yes" ; then
         cmake_custom_params="$cmake_custom_params -DBUILD_TESTS=ON"
     else
-        cmake_custom_params="$cmake_custom_params -DBUILD_TESTS=OFF"
+        cmake_custom_params="$cmake_custom_params -DBUILD_TESTS=OFF $cmake_my_params"
     fi
     ;;
 
@@ -215,7 +216,7 @@ case "$1" in
     if test "$build_tests" = "yes" ; then
         cmake_custom_params="$cmake_custom_params -DBUILD_TESTS=ON"
     else
-        cmake_custom_params="$cmake_custom_params -DBUILD_TESTS=OFF"
+        cmake_custom_params="$cmake_custom_params -DBUILD_TESTS=OFF $cmake_my_params"
     fi
     ;;
 
@@ -227,7 +228,7 @@ case "$1" in
     if test "$build_tests" = "yes" ; then
         cmake_custom_params="$cmake_custom_params -DBUILD_TESTS=ON"
     else
-        cmake_custom_params="$cmake_custom_params -DBUILD_TESTS=OFF"
+        cmake_custom_params="$cmake_custom_params -DBUILD_TESTS=OFF $cmake_my_params"
     fi
     ;;
 
@@ -235,14 +236,14 @@ case "$1" in
     NAME=mvfst
     SRCDIR=cachelib/external/$NAME
     update_submodules=no
-    cmake_custom_params="-DBUILD_SHARED_LIBS=ON"
+    cmake_custom_params="-DBUILD_SHARED_LIBS=ON $cmake_my_params"
     ;;
 
   fbthrift)
     NAME=fbthrift
     SRCDIR=cachelib/external/$NAME
     update_submodules=no
-    cmake_custom_params="-DBUILD_SHARED_LIBS=ON"
+    cmake_custom_params="-DBUILD_SHARED_LIBS=ON $cmake_my_params"
     ;;
 
   cachelib)
@@ -251,7 +252,7 @@ case "$1" in
     if test "$build_tests" = "yes" ; then
         cmake_custom_params="$cmake_custom_params -DBUILD_TESTS=ON"
     else
-        cmake_custom_params="$cmake_custom_params -DBUILD_TESTS=OFF"
+        cmake_custom_params="$cmake_custom_params -DBUILD_TESTS=OFF $cmake_my_params"
     fi
     ;;
 
