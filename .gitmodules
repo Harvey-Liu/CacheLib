@@ -1,15 +1,15 @@
 [submodule "fbthrift"]
 	path = cachelib/external/fbthrift
-	url = https://github.com/facebook/fbthrift
+	url = https://github.com/Harvey-Liu/fbthrift
 [submodule "folly"]
 	path = cachelib/external/folly
-	url = https://github.com/facebook/folly
+	url = https://github.com/Harvey-Liu/folly
 [submodule "fizz"]
 	path = cachelib/external/fizz
-	url = https://github.com/facebookincubator/fizz
+	url = https://github.com/Harvey-Liu/fizz
 [submodule "wangle"]
 	path = cachelib/external/wangle
-	url = https://github.com/facebook/wangle
+	url = https://github.com/Harvey-Liu/wangle
 [submodule "mvfst"]
        path = cachelib/external/mvfst
-       url = https://github.com/facebook/mvfst
+       url = https://github.com/Harvey-Liu/mvfst
